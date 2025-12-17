@@ -1,0 +1,18 @@
+name: Update class names
+on:
+  schedule:
+    - cron: "0 0 * * *" # Daily check
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run updater
+        uses: fedeericodl/discord-update-classnames@v1
+        with:
+          commit-message: "chore: update class names"
+          files: "src"
+          ignores: "src/vencord"
