@@ -8,7 +8,8 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Run updater
         uses: fedeericodl/discord-update-classnames@main
@@ -16,3 +17,4 @@ jobs:
           commit-message: "chore: update class names"
           files: "src"
           ignores: "src/vencord"
+          token: ${{ secrets.GITHUB_TOKEN }}
